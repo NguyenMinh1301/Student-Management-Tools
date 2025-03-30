@@ -87,7 +87,7 @@ public class View_Index extends javax.swing.JFrame {
         lblRoll.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblRoll.setText("role:");
 
-        lblNameVersion.setText("Student Management (V 1.0.0)");
+        lblNameVersion.setText("Student Management (v1.0.0)");
 
         btnStudent.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnStudent.setText("STUDENT");
@@ -126,7 +126,7 @@ public class View_Index extends javax.swing.JFrame {
         lblStudentManagement.setText("Student Management");
 
         lblVersion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblVersion.setText("(V 1.0.0)");
+        lblVersion.setText("(v1.0.0)");
 
         javax.swing.GroupLayout panScreenLayout = new javax.swing.GroupLayout(panScreen);
         panScreen.setLayout(panScreenLayout);

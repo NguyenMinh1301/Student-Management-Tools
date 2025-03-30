@@ -13,7 +13,7 @@ public class View_Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setTitle("Student management V 1.0.0");
+        this.setTitle("Student management (v1.0.0)");
 
         addHint(txtUsername, "Username");
         addHint(txtPassword, "Password");
