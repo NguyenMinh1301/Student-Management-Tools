@@ -2,7 +2,6 @@ package src.View.SupScreen.Score;
 
 import java.util.List;
 import src.Model.Model_Score;
-import src.Service.Service_Score;
 import src.Service.Service_Sort;
 import src.View.Screen.View_Score;
 
@@ -13,6 +12,8 @@ public class SubScreen_OptionScore extends javax.swing.JFrame {
     public SubScreen_OptionScore(View_Score viewScore) {
         this.viewScore = viewScore;
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     @SuppressWarnings("unchecked")
@@ -49,12 +50,27 @@ public class SubScreen_OptionScore extends javax.swing.JFrame {
 
         btnName.setFont(new java.awt.Font("Segoe UI", 0, 29)); // NOI18N
         btnName.setText("BY NAME");
+        btnName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNameActionPerformed(evt);
+            }
+        });
 
         btnScore.setFont(new java.awt.Font("Segoe UI", 0, 29)); // NOI18N
         btnScore.setText("BY SCORE");
+        btnScore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnScoreActionPerformed(evt);
+            }
+        });
 
         btnAverage.setFont(new java.awt.Font("Segoe UI", 0, 29)); // NOI18N
         btnAverage.setText("BY AVERAGE");
+        btnAverage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAverageActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panAdd1Layout = new javax.swing.GroupLayout(panAdd1);
         panAdd1.setLayout(panAdd1Layout);
@@ -87,15 +103,35 @@ public class SubScreen_OptionScore extends javax.swing.JFrame {
 
         btnEnglishTOP.setFont(new java.awt.Font("Segoe UI", 0, 29)); // NOI18N
         btnEnglishTOP.setText("ENGLISH");
+        btnEnglishTOP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnglishTOPActionPerformed(evt);
+            }
+        });
 
         btnComputerTOP.setFont(new java.awt.Font("Segoe UI", 0, 29)); // NOI18N
         btnComputerTOP.setText("COMPUTER");
+        btnComputerTOP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComputerTOPActionPerformed(evt);
+            }
+        });
 
         btnPhysicalTOP.setFont(new java.awt.Font("Segoe UI", 0, 29)); // NOI18N
         btnPhysicalTOP.setText("PHYSICAL");
+        btnPhysicalTOP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPhysicalTOPActionPerformed(evt);
+            }
+        });
 
         btnAverageTOP.setFont(new java.awt.Font("Segoe UI", 0, 29)); // NOI18N
         btnAverageTOP.setText("AVERAGE");
+        btnAverageTOP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAverageTOPActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panAdd2Layout = new javax.swing.GroupLayout(panAdd2);
         panAdd2.setLayout(panAdd2Layout);
@@ -167,6 +203,48 @@ public class SubScreen_OptionScore extends javax.swing.JFrame {
         List<Model_Score> sortedList = new Service_Sort().sortById();
         viewScore.tableSorted(sortedList);
     }//GEN-LAST:event_btnIdActionPerformed
+
+    private void btnNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNameActionPerformed
+        dispose();
+        List<Model_Score> sortedList = new Service_Sort().sortByName();
+        viewScore.tableSorted(sortedList);
+    }//GEN-LAST:event_btnNameActionPerformed
+
+    private void btnScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScoreActionPerformed
+        dispose();
+        List<Model_Score> sortedList = new Service_Sort().sortByScore();
+        viewScore.tableSorted(sortedList);
+    }//GEN-LAST:event_btnScoreActionPerformed
+
+    private void btnAverageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAverageActionPerformed
+        dispose();
+        List<Model_Score> sortedList = new Service_Sort().sortByAverage();
+        viewScore.tableSorted(sortedList);
+    }//GEN-LAST:event_btnAverageActionPerformed
+
+    private void btnEnglishTOPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnglishTOPActionPerformed
+        dispose();
+        List<Model_Score> topList = new Service_Sort().top10English();
+        viewScore.tableSorted(topList);
+    }//GEN-LAST:event_btnEnglishTOPActionPerformed
+
+    private void btnComputerTOPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComputerTOPActionPerformed
+        dispose();
+        List<Model_Score> topList = new Service_Sort().top10Computer();
+        viewScore.tableSorted(topList);
+    }//GEN-LAST:event_btnComputerTOPActionPerformed
+
+    private void btnPhysicalTOPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhysicalTOPActionPerformed
+        dispose();
+        List<Model_Score> topList = new Service_Sort().top10Physical();
+        viewScore.tableSorted(topList);
+    }//GEN-LAST:event_btnPhysicalTOPActionPerformed
+
+    private void btnAverageTOPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAverageTOPActionPerformed
+        dispose();
+        List<Model_Score> topList = new Service_Sort().top10Average();
+        viewScore.tableSorted(topList);
+    }//GEN-LAST:event_btnAverageTOPActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAverage;

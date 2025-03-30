@@ -128,6 +128,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="BY NAME"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNameActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnScore">
           <Properties>
@@ -136,6 +139,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="BY SCORE"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnScoreActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnAverage">
           <Properties>
@@ -144,6 +150,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="BY AVERAGE"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAverageActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -195,6 +204,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="ENGLISH"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnglishTOPActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnComputerTOP">
           <Properties>
@@ -203,6 +215,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="COMPUTER"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnComputerTOPActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnPhysicalTOP">
           <Properties>
@@ -211,6 +226,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="PHYSICAL"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPhysicalTOPActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnAverageTOP">
           <Properties>
@@ -219,6 +237,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="AVERAGE"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAverageTOPActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

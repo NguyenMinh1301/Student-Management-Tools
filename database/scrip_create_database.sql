@@ -18,9 +18,9 @@ GO
 
 CREATE TABLE SCORES (
 	[IdStudent] NVARCHAR(50) PRIMARY KEY
-  , [English] INT
-  , [Computer] INT
-  , [Physical] INT
+  , [English] FLOAT
+  , [Computer] FLOAT
+  , [Physical] FLOAT
 )
 
 GO
@@ -46,3 +46,10 @@ ALTER TABLE USERS
 ADD CONSTRAINT FK_roleid_ROLES
 FOREIGN KEY (roleid) REFERENCES ROLES(roleid)
 
+
+select * from SCORES
+
+SELECT S.IdStudent, ST.Name, S.English, S.Computer, S.Physical
+        FROM SCORES S
+        JOIN STUDENTS ST ON S.IdStudent = ST.IdStudent
+        ORDER BY S.IdStudent ASC

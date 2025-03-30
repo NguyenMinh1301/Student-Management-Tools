@@ -59,7 +59,8 @@ public class View_Score extends javax.swing.JPanel {
 
     public void tableSorted(List<Model_Score> list) {
         DefaultTableModel model = (DefaultTableModel) tblScore.getModel();
-        model.setRowCount(0);
+        model.setRowCount(0); // Clear
+
         for (Model_Score s : list) {
             float avg = (s.getEnglish() + s.getComputer() + s.getPhysical()) / 3f;
             model.addRow(new Object[]{
