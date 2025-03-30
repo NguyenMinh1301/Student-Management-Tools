@@ -2,7 +2,7 @@ package src.Service;
 
 import javax.swing.JOptionPane;
 
-public interface HandleNotification {
+public interface Handle_Notification {
 
     public static void announceError(String s) {
         JOptionPane.showMessageDialog(null, s, "Error", JOptionPane.ERROR_MESSAGE);

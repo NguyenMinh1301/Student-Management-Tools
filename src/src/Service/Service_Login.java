@@ -1,7 +1,7 @@
 package src.Service;
 
-import static src.Service.HandleNotification.announceWarning;
-import static src.Service.HandleNotification.announceError;
+import static src.Service.Handle_Notification.announceWarning;
+import static src.Service.Handle_Notification.announceError;
 import src.DAO.DAO_Login;
 
 public class Service_Login implements DAO_Login {

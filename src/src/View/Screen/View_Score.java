@@ -2,6 +2,9 @@ package src.View.Screen;
 
 import java.util.List;
 import java.awt.Color;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -12,8 +15,9 @@ import src.Service.Service_Score;
 import src.Model.Model_Score;
 import src.View.SupScreen.Score.SubScreen_AddScore;
 import src.View.SupScreen.Score.SubScreen_UpdateScore;
-import src.Service.HandleNotification;
+import src.Service.Service_ExportHelper;
 import src.View.SupScreen.Score.SubScreen_OptionScore;
+import src.Service.Handle_Notification;
 
 public class View_Score extends javax.swing.JPanel {
 
@@ -197,6 +201,7 @@ public class View_Score extends javax.swing.JPanel {
         txtComputer = new javax.swing.JTextField();
         txtPhysical = new javax.swing.JTextField();
         txtAverage = new javax.swing.JTextField();
+        btnOption1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1037, 0));
 
@@ -321,6 +326,15 @@ public class View_Score extends javax.swing.JPanel {
 
         txtAverage.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        btnOption1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btnOption1.setText("EXPORT");
+        btnOption1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnOption1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOption1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -328,12 +342,6 @@ public class View_Score extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEnglish, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtComputer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                            .addComponent(txtPhysical, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -352,17 +360,6 @@ public class View_Score extends javax.swing.JPanel {
                                 .addComponent(lblAverage)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtAverage, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 4, Short.MAX_VALUE)
-                                .addComponent(btnOption, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblComputer)
-                                    .addComponent(lblEnglish)
-                                    .addComponent(lblPhysical))
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(lblIdStudent)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -372,7 +369,27 @@ public class View_Score extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(113, 113, 113)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtEnglish, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtComputer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                                            .addComponent(txtPhysical, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addComponent(lblComputer)
+                                    .addComponent(lblEnglish)
+                                    .addComponent(lblPhysical))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(btnOption, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnOption1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
         );
 
@@ -391,11 +408,14 @@ public class View_Score extends javax.swing.JPanel {
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnOption, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnOption1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtIdStudent)
                             .addComponent(lblIdStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -423,8 +443,7 @@ public class View_Score extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtAverage, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblAverage))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtAverage, txtComputer, txtIdStudent, txtName, txtPhysical});
@@ -470,7 +489,7 @@ public class View_Score extends javax.swing.JPanel {
         int index = tblScore.getSelectedRow();
 
         if (index == -1) {
-            HandleNotification.announceWarning("Cannot update student if not selected !");
+            Handle_Notification.announceWarning("Cannot update student if not selected !");
             return;
         }
 
@@ -489,7 +508,7 @@ public class View_Score extends javax.swing.JPanel {
         int index = tblScore.getSelectedRow();
 
         if (index == -1) {
-            HandleNotification.announceWarning("Cannot remove student if not selected !");
+            Handle_Notification.announceWarning("Cannot remove student if not selected !");
             return;
         }
 
@@ -516,15 +535,15 @@ public class View_Score extends javax.swing.JPanel {
                 Service_Score service = new Service_Score();
                 boolean deleted = service.deleteScoreById(idStudent);
                 if (deleted) {
-                    HandleNotification.announceInfo("Delete score of student " + name + " success!");
+                    Handle_Notification.announceInfo("Delete score of student " + name + " success!");
                     initScoreData();
                     break;
                 } else {
-                    HandleNotification.announceWarning("Delete score of student " + name + " failed!");
+                    Handle_Notification.announceWarning("Delete score of student " + name + " failed!");
                     break;
                 }
             } else {
-                HandleNotification.announceWarning("Name does not match please re-enter");
+                Handle_Notification.announceWarning("Name does not match please re-enter");
             }
 
         }
@@ -533,7 +552,7 @@ public class View_Score extends javax.swing.JPanel {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         String keyword = txtSearch.getText().trim();
         if (keyword.isEmpty()) {
-            HandleNotification.announceWarning("Please enter ID or Name to search.");
+            Handle_Notification.announceWarning("Please enter ID or Name to search.");
             return;
         }
 
@@ -557,10 +576,19 @@ public class View_Score extends javax.swing.JPanel {
         option.setVisible(true);
     }//GEN-LAST:event_btnOptionActionPerformed
 
+    private void btnOption1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOption1ActionPerformed
+        try {
+            Service_ExportHelper.exportToCSV(tblScore);
+        } catch (IOException ex) {
+            Logger.getLogger(View_Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnOption1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnOption;
+    private javax.swing.JButton btnOption1;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnSearch;

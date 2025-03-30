@@ -1,11 +1,14 @@
 package src.View.SupScreen.Student;
 
+import java.awt.Image;
+import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import src.Service.HandleNotification;
 import src.Service.Service_Student;
 import src.View.Screen.View_Student;
+import src.Service.Handle_Notification;
+import src.Service.Service_Avatar;
 
 public class SubScreen_UpdateStudent extends javax.swing.JFrame {
 
@@ -241,7 +244,7 @@ public class SubScreen_UpdateStudent extends javax.swing.JFrame {
         Service_Student service = new Service_Student();
         boolean updateSuccess = service.updateCheck(id, name, email, phone, gender, address, avatar);
         if (updateSuccess == true) {
-            HandleNotification.announceInfo("<html>Successfully updated student <u>" + name + "</u> !</html>");
+            Handle_Notification.announceInfo("<html>Successfully updated student <u>" + name + "</u> !</html>");
             studentPanel.initStudentsData();
             this.dispose();
         }
@@ -249,14 +252,17 @@ public class SubScreen_UpdateStudent extends javax.swing.JFrame {
 
     private void lblImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImageMouseClicked
         JFileChooser chooser = new JFileChooser();
-        int choise = chooser.showOpenDialog(null);
-        if (choise == JFileChooser.APPROVE_OPTION) {
-            path = chooser.getSelectedFile().getPath();
-            ImageIcon icon = new ImageIcon(path);
-            lblImage.setIcon(icon);
-            lblImage.setText("");
-        }
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = chooser.getSelectedFile();
 
+            ImageIcon icon = new ImageIcon(selectedFile.getAbsolutePath());
+            lblImage.setIcon(new ImageIcon(icon.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH)));
+
+            String studentId = txtId.getText().trim();
+            String avatarPath = Service_Avatar.processAvatar(selectedFile, studentId);
+
+            this.path = avatarPath;
+        }
     }//GEN-LAST:event_lblImageMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

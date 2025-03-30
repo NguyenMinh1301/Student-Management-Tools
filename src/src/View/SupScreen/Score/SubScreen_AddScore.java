@@ -9,11 +9,11 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
-import src.Service.HandleNotification;
 import src.Model.Model_Students;
 import src.Service.Service_Score;
 import src.Service.Service_Student;
 import src.View.Screen.View_Score;
+import src.Service.Handle_Notification;
 
 public class SubScreen_AddScore extends javax.swing.JFrame {
 
@@ -371,7 +371,7 @@ public class SubScreen_AddScore extends javax.swing.JFrame {
         Service_Score service = new Service_Score();
         boolean addSuccess = service.addCheck(idStudent, name, english, computer, physical);
         if (addSuccess == true) {
-            HandleNotification.announceInfo("<html>Successfully added score for student <u>" + name + "</u> !</html>");
+            Handle_Notification.announceInfo("<html>Successfully added score for student <u>" + name + "</u> !</html>");
             scorePanel.initScoreData();
             this.dispose();
         }

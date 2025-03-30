@@ -8,9 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import src.Service.HandleNotification;
 import src.Service.Service_Score;
 import src.View.Screen.View_Score;
+import src.Service.Handle_Notification;
 
 public class SubScreen_UpdateScore extends javax.swing.JFrame {
 
@@ -364,7 +364,7 @@ public class SubScreen_UpdateScore extends javax.swing.JFrame {
         Service_Score service = new Service_Score();
         boolean updateSuccess = service.updateCheck(idStudent, name, english, computer, physical);
         if (updateSuccess == true) {
-            HandleNotification.announceInfo("<html>Successfully updated score for student <u>" + name + "</u> !</html>");
+            Handle_Notification.announceInfo("<html>Successfully updated score for student <u>" + name + "</u> !</html>");
             scorePanel.initScoreData();
             this.dispose();
         }

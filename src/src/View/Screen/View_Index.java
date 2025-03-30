@@ -2,14 +2,14 @@ package src.View.Screen;
 
 import java.awt.Color;
 import javax.swing.JButton;
-import src.Service.HandleNotification;
+import src.Service.Handle_Notification;
 
 public class View_Index extends javax.swing.JFrame {
 
     public static String currentAdmin;
 
     public View_Index() {
-        HandleNotification.announceError("An error occurred, please log in again");
+        Handle_Notification.announceError("An error occurred, please log in again");
         this.setVisible(false);
         View_Login lg = new View_Login();
         lg.setVisible(true);

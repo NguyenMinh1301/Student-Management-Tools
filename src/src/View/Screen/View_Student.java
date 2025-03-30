@@ -16,8 +16,8 @@ import src.Service.Service_Student;
 import src.View.SupScreen.Student.SubScreen_AddStudent;
 import src.View.SupScreen.Student.SubScreen_DetailsStudent;
 import src.View.SupScreen.Student.SubScreen_UpdateStudent;
-import src.Service.HandleNotification;
 import src.Service.Service_ExportHelper;
+import src.Service.Handle_Notification;
 
 public class View_Student extends javax.swing.JPanel {
 
@@ -317,7 +317,7 @@ public class View_Student extends javax.swing.JPanel {
                     .addComponent(btnDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnOption, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -332,7 +332,7 @@ public class View_Student extends javax.swing.JPanel {
         int index = tblStudents.getSelectedRow();
 
         if (index == -1) {
-            HandleNotification.announceWarning("Cannot update student if not selected !");
+            Handle_Notification.announceWarning("Cannot update student if not selected !");
             return;
         }
 
@@ -354,7 +354,7 @@ public class View_Student extends javax.swing.JPanel {
         int index = tblStudents.getSelectedRow();
 
         if (index == -1) {
-            HandleNotification.announceWarning("Cannot remove student if not selected !");
+            Handle_Notification.announceWarning("Cannot remove student if not selected !");
             return;
         }
 
@@ -381,15 +381,15 @@ public class View_Student extends javax.swing.JPanel {
                 Service_Student service = new Service_Student();
                 boolean deleted = service.deleteStudentById(id);
                 if (deleted) {
-                    HandleNotification.announceInfo("Delete student " + name + " success!");
+                    Handle_Notification.announceInfo("Delete student " + name + " success!");
                     initStudentsData();
                     break;
                 } else {
-                    HandleNotification.announceWarning("Delete student " + name + " failed!");
+                    Handle_Notification.announceWarning("Delete student " + name + " failed!");
                     break;
                 }
             } else {
-                HandleNotification.announceWarning("Name does not match please re-enter");
+                Handle_Notification.announceWarning("Name does not match please re-enter");
             }
 
         }
@@ -400,7 +400,7 @@ public class View_Student extends javax.swing.JPanel {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         String keyword = txtSearch.getText().trim();
         if (keyword.isEmpty()) {
-            HandleNotification.announceWarning("Please enter ID or Name to search.");
+            Handle_Notification.announceWarning("Please enter ID or Name to search.");
             return;
         }
 
@@ -431,7 +431,7 @@ public class View_Student extends javax.swing.JPanel {
         int index = tblStudents.getSelectedRow();
 
         if (index == -1) {
-            HandleNotification.announceWarning("Cannot remove student if not selected !");
+            Handle_Notification.announceWarning("Cannot remove student if not selected !");
             return;
         }
 

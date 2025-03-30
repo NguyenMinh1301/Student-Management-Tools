@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 import src.Service.Service_Register;
-import src.Service.HandleNotification;
+import src.Service.Handle_Notification;
 
 public class View_Register extends javax.swing.JFrame {
 
@@ -26,7 +26,7 @@ public class View_Register extends javax.swing.JFrame {
         String confirmPass = String.valueOf(txtConfirmPassword.getPassword());
 
         if (user.equals("Username") || pass.equals("Password") || pass.equals("Confirm password")) {
-            HandleNotification.announceWarning("Please enter your account and password");
+            Handle_Notification.announceWarning("Please enter your account and password");
             return;
         }
 
@@ -34,7 +34,7 @@ public class View_Register extends javax.swing.JFrame {
         if (b == false) {
             return;
         } else if (b == true) {
-            HandleNotification.announceInfo("Registration successful!");
+            Handle_Notification.announceInfo("Registration successful!");
             View_Login login = new View_Login();
             this.dispose();
             login.setVisible(true);

@@ -1,11 +1,14 @@
 package src.View.SupScreen.Student;
 
+import java.awt.Image;
+import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import src.Service.HandleNotification;
 import src.Service.Service_Student;
+import src.Service.Service_Avatar;
 import src.View.Screen.View_Student;
+import src.Service.Handle_Notification;
 
 public class SubScreen_AddStudent extends javax.swing.JFrame {
 
@@ -143,8 +146,8 @@ public class SubScreen_AddStudent extends javax.swing.JFrame {
                             .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(panAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
+                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(lblImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -228,7 +231,7 @@ public class SubScreen_AddStudent extends javax.swing.JFrame {
         Service_Student service = new Service_Student();
         boolean addSuccess = service.addCheck(name, email, phone, gender, address, avatar);
         if (addSuccess == true) {
-            HandleNotification.announceInfo("<html>Successfully added student <u>" + name + "</u> !</html>");
+            Handle_Notification.announceInfo("<html>Successfully added student <u>" + name + "</u> !</html>");
             studentPanel.initStudentsData();
             this.dispose();
         }
@@ -237,12 +240,15 @@ public class SubScreen_AddStudent extends javax.swing.JFrame {
 
     private void lblImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImageMouseClicked
         JFileChooser chooser = new JFileChooser();
-        int choise = chooser.showOpenDialog(null);
-        if (choise == JFileChooser.APPROVE_OPTION) {
-            path = chooser.getSelectedFile().getPath();
-            ImageIcon icon = new ImageIcon(path);
-            lblImage.setIcon(icon);
-            lblImage.setText("");
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = chooser.getSelectedFile();
+
+            ImageIcon icon = new ImageIcon(selectedFile.getAbsolutePath());
+            lblImage.setIcon(new ImageIcon(icon.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH)));
+
+            String studentId = new Service_Student().previewNextStudentId();
+            String avatarPath = Service_Avatar.processAvatar(selectedFile, studentId);
+            this.path = avatarPath;
         }
     }//GEN-LAST:event_lblImageMouseClicked
 

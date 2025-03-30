@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 import src.Service.Service_Login;
-import src.Service.HandleNotification;
+import src.Service.Handle_Notification;
 
 public class View_Login extends javax.swing.JFrame {
 
@@ -24,7 +24,7 @@ public class View_Login extends javax.swing.JFrame {
         String pass = String.valueOf(txtPassword.getPassword());
 
         if (user.equals("Username") || pass.equals("Password")) {
-            HandleNotification.announceWarning("Please enter your account and password");
+            Handle_Notification.announceWarning("Please enter your account and password");
             return;
         }
 

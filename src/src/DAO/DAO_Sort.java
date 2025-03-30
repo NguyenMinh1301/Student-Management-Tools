@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import src.Connection.Connection_ConnectorHelper;
-import static src.Service.HandleException.HandleException;
+import static src.Service.Handle_Exception.HandleException;
 import src.Model.Model_Score;
 
 public interface DAO_Sort {

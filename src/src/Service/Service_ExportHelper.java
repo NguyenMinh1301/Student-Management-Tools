@@ -7,12 +7,11 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
-import src.Service.HandleNotification;
 
 public class Service_ExportHelper {
 
     public static void exportToCSV(JTable table) throws IOException {
-        try (FileOutputStream fos = new FileOutputStream("src/student-list.csv"); OutputStreamWriter writer = new OutputStreamWriter(fos, StandardCharsets.UTF_8); BufferedWriter csvWriter = new BufferedWriter(writer)) {
+        try (FileOutputStream fos = new FileOutputStream("src/list.csv"); OutputStreamWriter writer = new OutputStreamWriter(fos, StandardCharsets.UTF_8); BufferedWriter csvWriter = new BufferedWriter(writer)) {
 
             fos.write(0xEF);
             fos.write(0xBB);
@@ -40,7 +39,7 @@ public class Service_ExportHelper {
             }
 
             csvWriter.flush();
-            HandleNotification.announceInfo("Exported CSV successfully (with UTF-8 support)!");
+            Handle_Notification.announceInfo("Exported CSV successfully (with UTF-8 support)!");
         }
     }
 }
