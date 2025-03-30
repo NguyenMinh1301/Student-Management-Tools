@@ -4,22 +4,25 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import src.Model.Model_User;
 import src.Service.Handle_Notification;
 
-public class View_Index extends javax.swing.JFrame {
+public class grpTheme extends javax.swing.JFrame {
 
     private Model_User currentUser;
 
-    public View_Index() {
+    public grpTheme() {
         Handle_Notification.announceError("An error occurred, please log in again");
         this.setVisible(false);
         View_Login lg = new View_Login();
         lg.setVisible(true);
     }
 
-    public View_Index(Model_User user) {
+    public grpTheme(Model_User user) {
         this.currentUser = user;
         initComponents();
         closeAll();
@@ -27,7 +30,7 @@ public class View_Index extends javax.swing.JFrame {
         addHoverEffect(btnScore);
         addHoverEffect(btnChart);
         addHoverEffect(btnLogOut);
-        
+
         checkPermission();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -81,24 +84,22 @@ public class View_Index extends javax.swing.JFrame {
         panScreen.repaint();
     }
 
-    public void addHoverEffect(JButton button) {
-        Color normal = button.getBackground();
-        Color hover = new Color(100, 149, 237);
+    public static void addHoverEffect(JButton btn) {
+        btn.putClientProperty("JButton.buttonType", "roundRect");
+        btn.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+        btn.setFocusPainted(true);
 
-        button.setContentAreaFilled(true);
-        button.setOpaque(true);
-        button.setFocusPainted(false);
-        button.setBackground(normal);
-
-        button.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button.setBackground(hover);
+            public void mouseEntered(MouseEvent e) {
+                btn.setBackground(new Color(100, 149, 237));
+                btn.setOpaque(true);
             }
 
             @Override
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                button.setBackground(normal);
+            public void mouseExited(MouseEvent e) {
+                btn.setBackground(null);
+                btn.setOpaque(false);
             }
         });
     }
@@ -122,6 +123,7 @@ public class View_Index extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grpTheme = new javax.swing.ButtonGroup();
         lblNameVersion = new javax.swing.JLabel();
         btnStudent = new javax.swing.JButton();
         btnScore = new javax.swing.JButton();
@@ -145,6 +147,7 @@ public class View_Index extends javax.swing.JFrame {
         btnStudent.setText("STUDENT");
         btnStudent.setActionCommand("");
         btnStudent.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnStudent.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStudentActionPerformed(evt);
@@ -155,6 +158,7 @@ public class View_Index extends javax.swing.JFrame {
         btnScore.setText("SCORE");
         btnScore.setActionCommand("");
         btnScore.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnScore.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnScore.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnScoreActionPerformed(evt);
@@ -165,6 +169,7 @@ public class View_Index extends javax.swing.JFrame {
         btnChart.setText("CHART");
         btnChart.setActionCommand("");
         btnChart.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnChart.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnChart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnChartActionPerformed(evt);
@@ -195,24 +200,29 @@ public class View_Index extends javax.swing.JFrame {
         btnLogOut.setText("LOG OUT");
         btnLogOut.setActionCommand("");
         btnLogOut.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnLogOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogOutActionPerformed(evt);
             }
         });
 
+        grpTheme.add(btnLight);
         btnLight.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnLight.setText("LIGHT");
         btnLight.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnLight.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLightActionPerformed(evt);
             }
         });
 
+        grpTheme.add(btnDark);
         btnDark.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnDark.setText("DARK");
         btnDark.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnDark.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDark.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDarkActionPerformed(evt);
@@ -362,6 +372,7 @@ public class View_Index extends javax.swing.JFrame {
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnScore;
     private javax.swing.JButton btnStudent;
+    private javax.swing.ButtonGroup grpTheme;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblIconStudentManagement;
     private javax.swing.JLabel lblNameVersion;

@@ -2,9 +2,12 @@ package src.View.Screen;
 
 import java.util.List;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -172,24 +175,22 @@ public class View_Score extends javax.swing.JPanel {
         });
     }
 
-    public void addHoverEffect(JButton button) {
-        Color normal = button.getBackground();
-        Color hover = new Color(100, 149, 237);
+    public static void addHoverEffect(JButton btn) {
+        btn.putClientProperty("JButton.buttonType", "roundRect");
+        btn.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+        btn.setFocusPainted(true);
 
-        button.setContentAreaFilled(true);
-        button.setOpaque(true);
-        button.setFocusPainted(false);
-        button.setBackground(normal);
-
-        button.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button.setBackground(hover);
+            public void mouseEntered(MouseEvent e) {
+                btn.setBackground(new Color(100, 149, 237));
+                btn.setOpaque(true);
             }
 
             @Override
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                button.setBackground(normal);
+            public void mouseExited(MouseEvent e) {
+                btn.setBackground(null);
+                btn.setOpaque(false);
             }
         });
     }
@@ -263,6 +264,7 @@ public class View_Score extends javax.swing.JPanel {
         btnAdd.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         btnAdd.setText("ADD");
         btnAdd.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -272,6 +274,7 @@ public class View_Score extends javax.swing.JPanel {
         btnUpdate.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         btnUpdate.setText("UPDATE");
         btnUpdate.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnUpdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -281,6 +284,7 @@ public class View_Score extends javax.swing.JPanel {
         btnRemove.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         btnRemove.setText("REMOVE");
         btnRemove.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnRemove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveActionPerformed(evt);
@@ -290,6 +294,7 @@ public class View_Score extends javax.swing.JPanel {
         btnSearch.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         btnSearch.setText("SEARCH");
         btnSearch.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
@@ -301,6 +306,7 @@ public class View_Score extends javax.swing.JPanel {
         btnRefresh.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         btnRefresh.setText("REFRESH");
         btnRefresh.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);
@@ -325,6 +331,7 @@ public class View_Score extends javax.swing.JPanel {
         btnOption.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         btnOption.setText("OPTION");
         btnOption.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnOption.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnOption.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOptionActionPerformed(evt);
@@ -349,6 +356,7 @@ public class View_Score extends javax.swing.JPanel {
         btnExport.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         btnExport.setText("EXPORT");
         btnExport.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnExport.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExportActionPerformed(evt);
