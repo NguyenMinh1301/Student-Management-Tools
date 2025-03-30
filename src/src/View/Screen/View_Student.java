@@ -13,9 +13,9 @@ import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import src.Model.Model_Students;
 import src.Service.Service_Student;
-import src.View.SupScreen.Student.SupScreen_AddStudent;
-import src.View.SupScreen.Student.SupScreen_DetailsStudent;
-import src.View.SupScreen.Student.SupScreen_UpdateStudent;
+import src.View.SupScreen.Student.SubScreen_AddStudent;
+import src.View.SupScreen.Student.SubScreen_DetailsStudent;
+import src.View.SupScreen.Student.SubScreen_UpdateStudent;
 import src.Service.HandleNotification;
 import src.Service.Service_ExportHelper;
 
@@ -323,7 +323,7 @@ public class View_Student extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        SupScreen_AddStudent add = new SupScreen_AddStudent(this);
+        SubScreen_AddStudent add = new SubScreen_AddStudent(this);
         add.setVisible(true);
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -345,7 +345,7 @@ public class View_Student extends javax.swing.JPanel {
         String address = model.getValueAt(index, 5).toString();
         String avatar = model.getValueAt(index, 6).toString();
 
-        SupScreen_UpdateStudent updateForm = new SupScreen_UpdateStudent(id, name, email, phone, gender, address, avatar, this);
+        SubScreen_UpdateStudent updateForm = new SubScreen_UpdateStudent(id, name, email, phone, gender, address, avatar, this);
         updateForm.setVisible(true);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -444,7 +444,7 @@ public class View_Student extends javax.swing.JPanel {
         String address = model.getValueAt(index, 5).toString();
         String avatar = model.getValueAt(index, 6).toString();
 
-        SupScreen_DetailsStudent detailsForm = new SupScreen_DetailsStudent(id, name, email, phone, gender, address, avatar, this);
+        SubScreen_DetailsStudent detailsForm = new SubScreen_DetailsStudent(id, name, email, phone, gender, address, avatar, this);
         detailsForm.setVisible(true);
     }//GEN-LAST:event_btnDetailsActionPerformed
 

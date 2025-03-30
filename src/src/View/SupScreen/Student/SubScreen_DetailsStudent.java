@@ -3,31 +3,27 @@ package src.View.SupScreen.Student;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import src.Service.HandleNotification;
-import src.Service.Service_Student;
 import src.View.Screen.View_Student;
 
-public class SupScreen_UpdateStudent extends javax.swing.JFrame {
+public class SubScreen_DetailsStudent extends javax.swing.JFrame {
 
     private View_Student studentPanel;
     private String path = "";
 
-    public SupScreen_UpdateStudent() {
+    public SubScreen_DetailsStudent() {
         initComponents();
-        setTitle("Student management V 1.0.0 | UPDATE");
+        setTitle("Student management V 1.0.0 | DETAILS");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
-    public SupScreen_UpdateStudent(String id, String name, String email, String phone, boolean gender, String address, String avatar, View_Student studentPanel) {
+    public SubScreen_DetailsStudent(String id, String name, String email, String phone, boolean gender, String address, String avatar, View_Student studentPanel) {
         initComponents();
-        this.studentPanel = studentPanel;
-        setTitle("Student management V 1.0.0 | UPDATE | " + name);
+        setTitle("Student management V 1.0.0 | DETAILS | " + name);
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         txtId.setText(id);
-        txtId.setEnabled(false);
         txtName.setText(name);
         txtEmail.setText(email);
         txtPhone.setText(phone);
@@ -40,14 +36,21 @@ public class SupScreen_UpdateStudent extends javax.swing.JFrame {
 
         this.path = avatar;
         lblImage.setIcon(new ImageIcon(avatar));
+
+        txtId.setEnabled(false);
+        txtName.setEnabled(false);
+        txtEmail.setEnabled(false);
+        txtPhone.setEnabled(false);
+        txtAddress.setEnabled(false);
+        rdoFemale.setEnabled(false);
+        rdoMale.setEnabled(false);
+        lblImage.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        grpGender = new javax.swing.ButtonGroup();
-        lblUpdateStudent = new javax.swing.JLabel();
         panAdd = new javax.swing.JPanel();
         lblId = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
@@ -61,28 +64,28 @@ public class SupScreen_UpdateStudent extends javax.swing.JFrame {
         lblAddress = new javax.swing.JLabel();
         lblGender = new javax.swing.JLabel();
         lblImage = new javax.swing.JLabel();
-        btnUpdate = new javax.swing.JButton();
         rdoMale = new javax.swing.JRadioButton();
         rdoFemale = new javax.swing.JRadioButton();
+        lblDetailsStudent = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblUpdateStudent.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblUpdateStudent.setText("UPDATE STUDENT");
-
-        panAdd.setBorder(javax.swing.BorderFactory.createTitledBorder("ADD"));
+        panAdd.setBorder(javax.swing.BorderFactory.createTitledBorder("DETAILS"));
 
         lblId.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblId.setText("ID");
 
         txtId.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtId.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         txtName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtName.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         lblName.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblName.setText("NAME");
 
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtEmail.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         lblEmail.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblEmail.setText("EMAIL");
@@ -91,8 +94,10 @@ public class SupScreen_UpdateStudent extends javax.swing.JFrame {
         lblPhone.setText("PHONE");
 
         txtPhone.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtPhone.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         txtAddress.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtAddress.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         lblAddress.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblAddress.setText("ADDRESS");
@@ -100,27 +105,20 @@ public class SupScreen_UpdateStudent extends javax.swing.JFrame {
         lblGender.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblGender.setText("GENDER");
 
-        lblImage.setText("ADD IMAGE");
+        lblImage.setText("IMAGE NOT FOUND");
+        lblImage.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblImage.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblImageMouseClicked(evt);
             }
         });
 
-        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        btnUpdate.setText("UPDATE");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
-            }
-        });
-
-        grpGender.add(rdoMale);
         rdoMale.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        rdoMale.setForeground(new java.awt.Color(0, 0, 0));
         rdoMale.setText("MALE");
 
-        grpGender.add(rdoFemale);
         rdoFemale.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        rdoFemale.setForeground(new java.awt.Color(0, 0, 0));
         rdoFemale.setText("FEMALE");
 
         javax.swing.GroupLayout panAddLayout = new javax.swing.GroupLayout(panAdd);
@@ -129,7 +127,7 @@ public class SupScreen_UpdateStudent extends javax.swing.JFrame {
             panAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panAddLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panAddLayout.createSequentialGroup()
                         .addGroup(panAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblPhone)
@@ -152,15 +150,13 @@ public class SupScreen_UpdateStudent extends javax.swing.JFrame {
                                 .addComponent(rdoMale)
                                 .addGap(18, 18, 18)
                                 .addComponent(rdoFemale))
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtAddress))))
                 .addGap(18, 18, 18)
-                .addGroup(panAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
+                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        panAddLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtAddress, txtEmail, txtId, txtName, txtPhone});
+        panAddLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtEmail, txtId, txtName, txtPhone});
 
         panAddLayout.setVerticalGroup(
             panAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,8 +165,7 @@ public class SupScreen_UpdateStudent extends javax.swing.JFrame {
                 .addGroup(panAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panAddLayout.createSequentialGroup()
                         .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(93, Short.MAX_VALUE))
                     .addGroup(panAddLayout.createSequentialGroup()
                         .addGroup(panAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblId)
@@ -196,12 +191,14 @@ public class SupScreen_UpdateStudent extends javax.swing.JFrame {
                         .addGroup(panAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panAddLayout.createSequentialGroup()
                                 .addComponent(lblAddress)
-                                .addGap(0, 133, Short.MAX_VALUE))
-                            .addComponent(txtAddress))))
-                .addContainerGap())
+                                .addContainerGap())
+                            .addComponent(txtAddress)))))
         );
 
         panAddLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtEmail, txtId, txtName, txtPhone});
+
+        lblDetailsStudent.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblDetailsStudent.setText("DETAILS STUDENT");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -210,42 +207,24 @@ public class SupScreen_UpdateStudent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblUpdateStudent)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(panAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblDetailsStudent)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblUpdateStudent)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblDetailsStudent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        String id = txtId.getText();
-        String name = txtName.getText();
-        String email = txtEmail.getText();
-        String phone = txtPhone.getText();
-        int gender = rdoMale.isSelected() ? 1 : 0;
-        String address = txtAddress.getText();
-        String avatar = path;
-
-        Service_Student service = new Service_Student();
-        boolean updateSuccess = service.updateCheck(id, name, email, phone, gender, address, avatar);
-        if (updateSuccess == true) {
-            HandleNotification.announceInfo("<html>Successfully updated student <u>" + name + "</u> !</html>");
-            studentPanel.initStudentsData();
-            this.dispose();
-        }
-    }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void lblImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImageMouseClicked
         JFileChooser chooser = new JFileChooser();
@@ -256,20 +235,17 @@ public class SupScreen_UpdateStudent extends javax.swing.JFrame {
             lblImage.setIcon(icon);
             lblImage.setText("");
         }
-
     }//GEN-LAST:event_lblImageMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnUpdate;
-    private javax.swing.ButtonGroup grpGender;
     private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblDetailsStudent;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhone;
-    private javax.swing.JLabel lblUpdateStudent;
     private javax.swing.JPanel panAdd;
     private javax.swing.JRadioButton rdoFemale;
     private javax.swing.JRadioButton rdoMale;

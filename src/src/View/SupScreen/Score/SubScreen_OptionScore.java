@@ -6,11 +6,11 @@ import src.Service.Service_Score;
 import src.Service.Service_Sort;
 import src.View.Screen.View_Score;
 
-public class SupScreen_OptionScore extends javax.swing.JFrame {
+public class SubScreen_OptionScore extends javax.swing.JFrame {
 
     private View_Score viewScore;
 
-    public SupScreen_OptionScore(View_Score viewScore) {
+    public SubScreen_OptionScore(View_Score viewScore) {
         this.viewScore = viewScore;
         initComponents();
     }

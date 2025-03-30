@@ -10,10 +10,10 @@ import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import src.Service.Service_Score;
 import src.Model.Model_Score;
-import src.View.SupScreen.Score.SupScreen_AddScore;
-import src.View.SupScreen.Score.SupScreen_UpdateScore;
+import src.View.SupScreen.Score.SubScreen_AddScore;
+import src.View.SupScreen.Score.SubScreen_UpdateScore;
 import src.Service.HandleNotification;
-import src.View.SupScreen.Score.SupScreen_OptionScore;
+import src.View.SupScreen.Score.SubScreen_OptionScore;
 
 public class View_Score extends javax.swing.JPanel {
 
@@ -423,8 +423,7 @@ public class View_Score extends javax.swing.JPanel {
                             .addComponent(txtAverage, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblAverage))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtAverage, txtComputer, txtIdStudent, txtName, txtPhysical});
@@ -432,7 +431,7 @@ public class View_Score extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        SupScreen_AddScore add = new SupScreen_AddScore(this);
+        SubScreen_AddScore add = new SubScreen_AddScore(this);
         add.setVisible(true);
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -480,7 +479,7 @@ public class View_Score extends javax.swing.JPanel {
         String computer = model.getValueAt(index, 3).toString();
         String physical = model.getValueAt(index, 4).toString();
 
-        SupScreen_UpdateScore updateForm = new SupScreen_UpdateScore(idStudent, name, english, computer, physical, this);
+        SubScreen_UpdateScore updateForm = new SubScreen_UpdateScore(idStudent, name, english, computer, physical, this);
         updateForm.setVisible(true);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -553,7 +552,7 @@ public class View_Score extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOptionActionPerformed
-        SupScreen_OptionScore option = new SupScreen_OptionScore(this);
+        SubScreen_OptionScore option = new SubScreen_OptionScore(this);
         option.setVisible(true);
     }//GEN-LAST:event_btnOptionActionPerformed
 

@@ -20,27 +20,27 @@ public class Service_Score implements DAO_Score {
 
         try {
             if (idStudent.length() <= 0) {
-                HandleNotification.announceWarning("<html>You have not entered <b>ID</b></html>");
+                HandleNotification.announceWarning("<html>You have not entered <b>ID</b> score</html>");
                 return b;
             }
 
             if (name.length() <= 0) {
-                HandleNotification.announceWarning("<html>You have not entered <b>ID</b></html>");
+                HandleNotification.announceWarning("<html>You have not entered <b>Name</b> score</html>");
                 return b;
             }
 
             if (english.length() <= 0) {
-                HandleNotification.announceWarning("<html>You have not entered <b>ID</b></html>");
+                HandleNotification.announceWarning("<html>You have not entered <b>English</b> score</html>");
                 return b;
             }
 
             if (computer.length() <= 0) {
-                HandleNotification.announceWarning("<html>You have not entered <b>ID</b></html>");
+                HandleNotification.announceWarning("<html>You have not entered <b>Computer</b> score</html>");
                 return b;
             }
 
             if (physical.length() <= 0) {
-                HandleNotification.announceWarning("<html>You have not entered <b>ID</b></html>");
+                HandleNotification.announceWarning("<html>You have not entered <b>Physical</b> score</html>");
                 return b;
             }
 

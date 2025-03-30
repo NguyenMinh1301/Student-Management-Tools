@@ -64,18 +64,19 @@ public class Service_Student implements DAO_Students {
                 return b;
             }
 
-            String phoneRegex = "^(0|\\+84)(3[2-9]|5[6|8|9]|7[0|6-9]|8[1-5]|9[0-9])[0-9]{7}$";
             String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
+            String phoneRegex = "^(0|\\+84)(3[2-9]|5[6|8|9]|7[0|6-9]|8[1-5]|9[0-9])[0-9]{7}$";
+
+            if (!email.matches(emailRegex)) {
+                HandleNotification.announceWarning("Entered wrong email format");
+                return b;
+            }
 
             if (!phone.matches(phoneRegex)) {
                 HandleNotification.announceWarning("Entered wrong phone number format");
                 return b;
             }
 
-            if (!email.matches(emailRegex)) {
-                HandleNotification.announceWarning("Entered wrong email format");
-                return b;
-            }
         } catch (Exception ex) {
             HandleNotification.announceError("An unknown error occurred!");
         }

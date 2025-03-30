@@ -1,8 +1,13 @@
 package src.View.SupScreen.Score;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.font.TextAttribute;
+import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import src.Service.HandleNotification;
 import src.Model.Model_Students;
@@ -10,11 +15,11 @@ import src.Service.Service_Score;
 import src.Service.Service_Student;
 import src.View.Screen.View_Score;
 
-public class SupScreen_AddScore extends javax.swing.JFrame {
+public class SubScreen_AddScore extends javax.swing.JFrame {
 
     private View_Score scorePanel;
 
-    public SupScreen_AddScore(View_Score scorePanel) {
+    public SubScreen_AddScore(View_Score scorePanel) {
         this.scorePanel = scorePanel;
         initComponents();
         initStudentsData();
@@ -26,6 +31,11 @@ public class SupScreen_AddScore extends javax.swing.JFrame {
         txtId.setEnabled(false);
         txtName.setEnabled(false);
         txtAvarage.setEnabled(false);
+
+        scoreListener(txtEnglish);
+        scoreListener(txtComputer);
+        scoreListener(txtPhysical);
+
     }
 
     public void initStudentsData() {
@@ -72,6 +82,46 @@ public class SupScreen_AddScore extends javax.swing.JFrame {
         } else {
             field.setForeground(new Color(0, 128, 0));
         }
+    }
+
+    public void scoreListener(JTextField txt) {
+        Font baseFont = txt.getFont();
+
+        txt.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                validate();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                validate();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                validate();
+            }
+
+            private void validate() {
+                String text = txt.getText().trim();
+                boolean isValid = false;
+
+                try {
+                    float score = Float.parseFloat(text);
+                    if (score >= 0 && score <= 10) {
+                        isValid = true;
+                    }
+                } catch (NumberFormatException ignored) {
+                }
+
+                Map attributes = baseFont.getAttributes();
+                attributes.put(TextAttribute.STRIKETHROUGH, !isValid);
+                txt.setFont(baseFont.deriveFont(attributes));
+                txt.setForeground(isValid ? Color.BLACK : Color.RED);
+                txt.setToolTipText(isValid ? null : "Score must between 0-10");
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
