@@ -16,7 +16,7 @@ public class View_Register extends javax.swing.JFrame {
 
         addHint(txtUsername, "Username");
         addHint(txtPassword, "Password");
-        addHint(txtConfirmPassword, "Confirm password");
+        addHint(txtConfirmPassword, "Password");
     }
 
     public void submit() {
@@ -25,7 +25,7 @@ public class View_Register extends javax.swing.JFrame {
         String pass = String.valueOf(txtPassword.getPassword());
         String confirmPass = String.valueOf(txtConfirmPassword.getPassword());
 
-        if (user.equals("Username") || pass.equals("Password") || pass.equals("Confirm password")) {
+        if (user.equals("Username") || pass.equals("Password") || pass.equals("Password")) {
             Handle_Notification.announceWarning("Please enter your account and password");
             return;
         }
@@ -34,7 +34,6 @@ public class View_Register extends javax.swing.JFrame {
         if (b == false) {
             return;
         } else if (b == true) {
-            Handle_Notification.announceInfo("Registration successful!");
             View_Login login = new View_Login();
             this.dispose();
             login.setVisible(true);

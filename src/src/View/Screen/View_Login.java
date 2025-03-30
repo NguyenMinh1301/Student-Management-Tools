@@ -4,6 +4,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
+import src.Model.Model_User;
 import src.Service.Service_Login;
 import src.Service.Handle_Notification;
 
@@ -20,23 +21,19 @@ public class View_Login extends javax.swing.JFrame {
     }
 
     public void submit() {
-        String user = txtUsername.getText();
-        String pass = String.valueOf(txtPassword.getPassword());
+        String username = txtUsername.getText().trim();
+        String password = String.valueOf(txtPassword.getPassword()).trim();
 
-        if (user.equals("Username") || pass.equals("Password")) {
+        if (username.equals("Username") || password.equals("Password")) {
             Handle_Notification.announceWarning("Please enter your account and password");
             return;
         }
 
         Service_Login service = new Service_Login();
-        boolean b = service.checkLogin(user, pass);
-
-        if (b == false) {
-            return;
-        } else if (b == true) {
-            View_Index index = new View_Index(user);
-            this.dispose();
-            index.setVisible(true);
+        Model_User user = service.loginCheck(username, password);
+        if (user != null) {
+            new View_Index(user).setVisible(true);
+            dispose();
         }
     }
 
@@ -126,7 +123,7 @@ public class View_Login extends javax.swing.JFrame {
             }
         });
 
-        lblNameVersion.setText("Student Management (V 1.0.0)");
+        lblNameVersion.setText("Student Management v1.0.0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

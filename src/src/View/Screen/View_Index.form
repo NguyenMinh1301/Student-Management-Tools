@@ -34,7 +34,7 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btnChart" alignment="1" pref="179" max="32767" attributes="0"/>
                           <Component id="lblNameVersion" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblRoll" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRole" min="-2" max="-2" attributes="0"/>
                           <Component id="lblUserName" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -80,7 +80,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="lblUserName" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="lblRoll" min="-2" max="-2" attributes="0"/>
+              <Component id="lblRole" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Component id="lblNameVersion" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -106,7 +106,7 @@
         <Property name="text" type="java.lang.String" value="username:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblRoll">
+    <Component class="javax.swing.JLabel" name="lblRole">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>

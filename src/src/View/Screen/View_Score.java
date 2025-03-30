@@ -13,6 +13,7 @@ import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import src.Service.Service_Score;
 import src.Model.Model_Score;
+import src.Model.Model_User;
 import src.View.SupScreen.Score.SubScreen_AddScore;
 import src.View.SupScreen.Score.SubScreen_UpdateScore;
 import src.Service.Service_ExportHelper;
@@ -22,9 +23,11 @@ import src.Service.Handle_Notification;
 public class View_Score extends javax.swing.JPanel {
 
     private Service_Score service;
+    private Model_User currentUser;
 
-    public View_Score() {
+    public View_Score(Model_User user) {
         initComponents();
+        this.currentUser = user;
         this.service = new Service_Score();
         initScoreData();
         initSearch();
@@ -37,13 +40,30 @@ public class View_Score extends javax.swing.JPanel {
         txtPhysical.setEditable(false);
         txtAverage.setEditable(false);
 
+        checkPermission();
+        
         addHoverEffect(btnAdd);
         addHoverEffect(btnUpdate);
         addHoverEffect(btnRemove);
         addHoverEffect(btnSearch);
         addHoverEffect(btnOption);
         addHoverEffect(btnRefresh);
+    }
 
+    private void checkPermission() {
+        int role = currentUser.getRole();
+
+        if (role == 3) { //User
+            btnAdd.setEnabled(false);
+            btnUpdate.setEnabled(false);
+            btnRemove.setEnabled(false);
+            btnSearch.setEnabled(true);
+            txtSearch.setEnabled(true);
+            btnOption.setEnabled(false);
+            btnRefresh.setEnabled(false);
+            btnExport.setEnabled(false);
+            tblScore.setEnabled(false);
+        }
     }
 
     public void initScoreData() {
@@ -201,7 +221,7 @@ public class View_Score extends javax.swing.JPanel {
         txtComputer = new javax.swing.JTextField();
         txtPhysical = new javax.swing.JTextField();
         txtAverage = new javax.swing.JTextField();
-        btnOption1 = new javax.swing.JButton();
+        btnExport = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1037, 0));
 
@@ -326,12 +346,12 @@ public class View_Score extends javax.swing.JPanel {
 
         txtAverage.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        btnOption1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnOption1.setText("EXPORT");
-        btnOption1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnOption1.addActionListener(new java.awt.event.ActionListener() {
+        btnExport.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btnExport.setText("EXPORT");
+        btnExport.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnExport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOption1ActionPerformed(evt);
+                btnExportActionPerformed(evt);
             }
         });
 
@@ -389,7 +409,7 @@ public class View_Score extends javax.swing.JPanel {
                                         .addComponent(btnOption, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnOption1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(btnExport, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
         );
 
@@ -408,13 +428,13 @@ public class View_Score extends javax.swing.JPanel {
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnOption, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnOption1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnExport, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtIdStudent)
@@ -576,19 +596,19 @@ public class View_Score extends javax.swing.JPanel {
         option.setVisible(true);
     }//GEN-LAST:event_btnOptionActionPerformed
 
-    private void btnOption1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOption1ActionPerformed
+    private void btnExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportActionPerformed
         try {
             Service_ExportHelper.exportToCSV(tblScore);
         } catch (IOException ex) {
             Logger.getLogger(View_Student.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnOption1ActionPerformed
+    }//GEN-LAST:event_btnExportActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnExport;
     private javax.swing.JButton btnOption;
-    private javax.swing.JButton btnOption1;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnSearch;

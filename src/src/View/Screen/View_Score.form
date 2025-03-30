@@ -80,7 +80,7 @@
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="btnRefresh" min="-2" pref="160" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="btnOption1" alignment="1" min="-2" pref="332" max="-2" attributes="0"/>
+                                  <Component id="btnExport" alignment="1" min="-2" pref="332" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -105,14 +105,14 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" pref="437" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="417" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnRefresh" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="btnOption" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnOption1" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="btnExport" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtIdStudent" linkSize="3" alignment="3" max="32767" attributes="0"/>
@@ -417,7 +417,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnOption1">
+    <Component class="javax.swing.JButton" name="btnExport">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="20" style="0"/>
@@ -430,7 +430,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOption1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExportActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

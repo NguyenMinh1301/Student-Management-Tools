@@ -3,36 +3,38 @@ package src.Service;
 import static src.Service.Handle_Notification.announceWarning;
 import static src.Service.Handle_Notification.announceError;
 import src.DAO.DAO_Login;
+import src.Model.Model_User;
 
 public class Service_Login implements DAO_Login {
-
-    public boolean checkLogin(String name, String pass) {
-        if (name.length() <= 0) {
+    
+    public Model_User loginCheck(String username, String password) {
+        Model_User user = getUserByUsernameFull(username);
+        if (username.length() <= 0) {
             announceWarning("You have not entered Username !");
-            return false;
+            return null;
         }
 
-        if (pass.length() <= 0) {
+        if (password.length() <= 0) {
             announceWarning("You have not entered Password !");
-            return false;
+            return null;
         }
 
-        if (!isExistUser(name)) {
+        if (!isExistUser(username)) {
             announceWarning("<html>Wrong <b>Username</b> or <b>Password</b> !</html>");
-            return false;
+            return null;
         }
 
-        String hashed = getHashedPasswordByUsername(name);
+        String hashed = getHashedPasswordByUsername(username);
         if (hashed == null) {
             announceError("Unable to retrieve password from system.");
-            return false;
+            return null;
         }
 
-        if (!Service_BCrypt.BCryptUtils.checkPassword(pass, hashed)) {
+        if (!Service_BCrypt.BCryptUtils.checkPassword(password, hashed)) {
             announceWarning("<html>Wrong <b>Username</b> or <b>Password</b> !</html>");
-            return false;
+            return null;
         }
 
-        return true;
+        return user;
     }
 }

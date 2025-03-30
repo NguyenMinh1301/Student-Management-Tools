@@ -37,7 +37,7 @@ public class Service_Register implements DAO_Register {
 
         String hashedPassword = Service_BCrypt.BCryptUtils.hashPassword(password);
 
-        int roleId = getRoleIdByName("user");
+        int roleId = getRoleIdByName("User");
         if (roleId == -1) {
             announceError("Cannot find role 'user' in database.");
             return b;

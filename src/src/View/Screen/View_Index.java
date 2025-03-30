@@ -2,11 +2,12 @@ package src.View.Screen;
 
 import java.awt.Color;
 import javax.swing.JButton;
+import src.Model.Model_User;
 import src.Service.Handle_Notification;
 
 public class View_Index extends javax.swing.JFrame {
 
-    public static String currentAdmin;
+    private Model_User currentUser;
 
     public View_Index() {
         Handle_Notification.announceError("An error occurred, please log in again");
@@ -15,21 +16,53 @@ public class View_Index extends javax.swing.JFrame {
         lg.setVisible(true);
     }
 
-    public View_Index(String s) {
+    public View_Index(Model_User user) {
+        this.currentUser = user;
         initComponents();
-        initDefaultData(s);
+        closeAll();
+        checkPermission();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
         panScreen.setLayout(new java.awt.CardLayout());
     }
 
-    public void initDefaultData(String s) {
-        this.setTitle("Student management V 1.0.0 | " + s);
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        View_Index.currentAdmin = s;
-        lblUserName.setText("username: " + currentAdmin);
-        closeAll();
-        View_Student studentPanel = new View_Student();
-        panScreen.add(studentPanel);
+    private void checkPermission() {
+        String username = currentUser.getUsername();
+        int role = currentUser.getRole();
+        String roleName = "";
+        
+        switch (role) {
+            case 1:
+                roleName = "admin";
+                break;
+            case 2:
+                roleName = "teacher";
+                break;
+            case 3:
+                roleName = "user";
+                break;
+            default:
+                roleName = "unknown";
+                break;
+        }
+
+        if (role == 1) { //Admin
+            View_Student studentPanel = new View_Student();
+            panScreen.add(studentPanel);
+        } if (role == 2) { //Teacher
+            btnStudent.setVisible(false);
+            View_Score scorePanel = new View_Score(currentUser);
+            panScreen.add(scorePanel);
+        } if(role == 3) { //User
+            btnStudent.setVisible(false);
+            btnChart.setVisible(false);
+            View_Score scorePanel = new View_Score(currentUser);
+            panScreen.add(scorePanel);
+        }
+
+        this.setTitle("Student management V 1.0.0 | " + username);
+        lblUserName.setText("username: " + username);
+        lblRole.setText("role: " + roleName);
     }
 
     public void closeAll() {
@@ -66,7 +99,7 @@ public class View_Index extends javax.swing.JFrame {
 
         lblIconUser = new javax.swing.JLabel();
         lblUserName = new javax.swing.JLabel();
-        lblRoll = new javax.swing.JLabel();
+        lblRole = new javax.swing.JLabel();
         lblNameVersion = new javax.swing.JLabel();
         btnStudent = new javax.swing.JButton();
         btnScore = new javax.swing.JButton();
@@ -84,8 +117,8 @@ public class View_Index extends javax.swing.JFrame {
         lblUserName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblUserName.setText("username:");
 
-        lblRoll.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblRoll.setText("role:");
+        lblRole.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblRole.setText("role:");
 
         lblNameVersion.setText("Student Management (v1.0.0)");
 
@@ -153,7 +186,7 @@ public class View_Index extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnChart, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                             .addComponent(lblNameVersion)
-                            .addComponent(lblRoll)
+                            .addComponent(lblRole)
                             .addComponent(lblUserName)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -190,7 +223,7 @@ public class View_Index extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblUserName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblRoll)
+                .addComponent(lblRole)
                 .addGap(21, 21, 21)
                 .addComponent(lblNameVersion)
                 .addContainerGap())
@@ -203,7 +236,7 @@ public class View_Index extends javax.swing.JFrame {
 
     private void btnScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScoreActionPerformed
         closeAll();
-        View_Score scorePanel = new View_Score();
+        View_Score scorePanel = new View_Score(currentUser);
         panScreen.add(scorePanel);
     }//GEN-LAST:event_btnScoreActionPerformed
 
@@ -226,7 +259,7 @@ public class View_Index extends javax.swing.JFrame {
     private javax.swing.JLabel lblIconStudentManagement;
     private javax.swing.JLabel lblIconUser;
     private javax.swing.JLabel lblNameVersion;
-    private javax.swing.JLabel lblRoll;
+    private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblStudentManagement;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblVersion;
