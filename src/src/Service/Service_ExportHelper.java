@@ -39,7 +39,7 @@ public class Service_ExportHelper {
             }
 
             csvWriter.flush();
-            Handle_Notification.announceInfo("Exported CSV successfully (with UTF-8 support)!");
+            Handle_Notification.announceInfo("Exported CSV successfully (src/list.csv)!");
         }
     }
 }
