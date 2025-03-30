@@ -110,9 +110,12 @@ INSERT INTO SCORES ([IdStudent], [English], [Computer], [Physical]) VALUES ('TV0
 INSERT INTO SCORES ([IdStudent], [English], [Computer], [Physical]) VALUES ('TV00049', 5.0, 7.5, 8.0);
 INSERT INTO SCORES ([IdStudent], [English], [Computer], [Physical]) VALUES ('TV00050', 5.0, 7.5, 6.0);
 
+DELETE FROM ROLES;
+
 INSERT INTO ROLES ([roleid], [rolename]) VALUES 
-	('1', 'admin')
-  , ('2', 'user')
+	(1, N'Admin'),
+	(2, N'Teacher'),
+	(3, N'Student');
 
 INSERT INTO USERS ([username], [password], [roleid]) VALUES
 	('minh', '123', '1');

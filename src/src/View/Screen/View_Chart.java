@@ -41,7 +41,7 @@ public class View_Chart extends javax.swing.JPanel {
             dataset.setValue(entry.getKey() + " (" + String.format("%.1f", percent) + "%)", percent);
         }
 
-        JFreeChart chart = ChartFactory.createPieChart(null, dataset, false, true, false);
+        JFreeChart chart = ChartFactory.createPieChart(title, dataset, false, true, false);
         PiePlot plot = (PiePlot) chart.getPlot();
         plot.setBackgroundPaint(panChart.getBackground());
         plot.setOutlineVisible(false);

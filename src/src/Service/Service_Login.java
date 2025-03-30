@@ -18,7 +18,7 @@ public class Service_Login implements DAO_Login {
         }
 
         if (!isExistUser(name)) {
-            announceWarning("Account does not exist !");
+            announceWarning("<html>Wrong <b>Username</b> or <b>Password</b> !</html>");
             return false;
         }
 
@@ -29,7 +29,7 @@ public class Service_Login implements DAO_Login {
         }
 
         if (!Service_BCrypt.BCryptUtils.checkPassword(pass, hashed)) {
-            announceWarning("Wrong password !");
+            announceWarning("<html>Wrong <b>Username</b> or <b>Password</b> !</html>");
             return false;
         }
 

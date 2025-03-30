@@ -5,7 +5,7 @@ public class Model_User {
     private String username;
     private String password;
     private String role;
-
+    
     public Model_User() {
     }
 
