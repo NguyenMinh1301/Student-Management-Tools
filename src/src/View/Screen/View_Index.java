@@ -11,18 +11,18 @@ import javax.swing.JButton;
 import src.Model.Model_User;
 import src.Service.Handle_Notification;
 
-public class grpTheme extends javax.swing.JFrame {
+public class View_Index extends javax.swing.JFrame {
 
     private Model_User currentUser;
 
-    public grpTheme() {
+    public View_Index() {
         Handle_Notification.announceError("An error occurred, please log in again");
         this.setVisible(false);
         View_Login lg = new View_Login();
         lg.setVisible(true);
     }
 
-    public grpTheme(Model_User user) {
+    public View_Index(Model_User user) {
         this.currentUser = user;
         initComponents();
         closeAll();
@@ -288,7 +288,6 @@ public class grpTheme extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblStudentManagement)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
