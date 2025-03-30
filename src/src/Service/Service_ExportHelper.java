@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
-import src.DAO.HandleNotification;
+import src.Service.HandleNotification;
 
 public class Service_ExportHelper {
 

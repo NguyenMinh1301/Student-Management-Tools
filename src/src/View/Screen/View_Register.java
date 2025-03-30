@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 import src.Service.Service_Register;
-import src.DAO.HandleNotification;
+import src.Service.HandleNotification;
 
 public class View_Register extends javax.swing.JFrame {
 

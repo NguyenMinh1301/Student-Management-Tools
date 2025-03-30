@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import src.DAO.DAO_Students;
 import src.Model.Model_Students;
-import src.DAO.HandleNotification;
+import src.Service.HandleNotification;
 
 public class Service_Student implements DAO_Students {
 

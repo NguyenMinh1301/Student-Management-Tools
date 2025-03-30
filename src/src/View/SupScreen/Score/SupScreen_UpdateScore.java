@@ -3,7 +3,7 @@ package src.View.SupScreen.Score;
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
-import src.DAO.HandleNotification;
+import src.Service.HandleNotification;
 import src.Service.Service_Score;
 import src.View.Screen.View_Score;
 

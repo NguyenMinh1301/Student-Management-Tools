@@ -12,7 +12,7 @@ import src.Service.Service_Score;
 import src.Model.Model_Score;
 import src.View.SupScreen.Score.SupScreen_AddScore;
 import src.View.SupScreen.Score.SupScreen_UpdateScore;
-import src.DAO.HandleNotification;
+import src.Service.HandleNotification;
 import src.View.SupScreen.Score.SupScreen_OptionScore;
 
 public class View_Score extends javax.swing.JPanel {

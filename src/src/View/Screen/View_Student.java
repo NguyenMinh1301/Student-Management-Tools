@@ -16,7 +16,7 @@ import src.Service.Service_Student;
 import src.View.SupScreen.Student.SupScreen_AddStudent;
 import src.View.SupScreen.Student.SupScreen_DetailsStudent;
 import src.View.SupScreen.Student.SupScreen_UpdateStudent;
-import src.DAO.HandleNotification;
+import src.Service.HandleNotification;
 import src.Service.Service_ExportHelper;
 
 public class View_Student extends javax.swing.JPanel {

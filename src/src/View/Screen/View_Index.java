@@ -2,7 +2,7 @@ package src.View.Screen;
 
 import java.awt.Color;
 import javax.swing.JButton;
-import src.DAO.HandleNotification;
+import src.Service.HandleNotification;
 
 public class View_Index extends javax.swing.JFrame {
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import src.Connection.Connection_ConnectorHelper;
 import src.Model.Model_Score;
-import static src.DAO.HandleException.HandleException;
+import static src.Service.HandleException.HandleException;
 
 public interface DAO_Score {
 

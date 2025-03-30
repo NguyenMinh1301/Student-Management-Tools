@@ -1,15 +1,13 @@
 package src.DAO;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import src.Model.Model_Students;
 import src.Connection.Connection_ConnectorHelper;
-import static src.DAO.HandleException.HandleException;
+import static src.Service.HandleException.HandleException;
 import src.Model.Model_Score;
 
 public interface DAO_Sort {

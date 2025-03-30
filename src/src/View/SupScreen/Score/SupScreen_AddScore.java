@@ -4,7 +4,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import src.DAO.HandleNotification;
+import src.Service.HandleNotification;
 import src.Model.Model_Students;
 import src.Service.Service_Score;
 import src.Service.Service_Student;

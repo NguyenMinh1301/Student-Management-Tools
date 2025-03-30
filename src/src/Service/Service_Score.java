@@ -3,7 +3,7 @@ package src.Service;
 import java.util.List;
 import src.DAO.DAO_Score;
 import src.Model.Model_Score;
-import src.DAO.HandleNotification;
+import src.Service.HandleNotification;
 
 public class Service_Score implements DAO_Score {
 
