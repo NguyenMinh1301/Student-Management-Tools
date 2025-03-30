@@ -208,5 +208,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 If you have any questions or feedback, please reach out:
 - **Name**: [Nguyen Quang Minh](https://nguyenminh8.wordpress.com/)
 - **Email**: nguyenminh1301.dev@gmail.com
-- **Phone**: +84 0378 229 818
 - **GitHub**: [NguyenMinh1301](https://github.com/NguyenMinh1301)
