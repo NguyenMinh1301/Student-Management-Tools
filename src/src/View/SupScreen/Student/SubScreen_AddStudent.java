@@ -19,6 +19,15 @@ public class SubScreen_AddStudent extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        showNextId();
+
+    }
+
+    private void showNextId() {
+        String id = new Service_Student().previewNextStudentId();
+        txtId.setText(id);
+        txtId.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -209,7 +218,6 @@ public class SubScreen_AddStudent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        String id = txtId.getText();
         String name = txtName.getText();
         String email = txtEmail.getText();
         String phone = txtPhone.getText();
@@ -218,7 +226,7 @@ public class SubScreen_AddStudent extends javax.swing.JFrame {
         String avatar = path;
 
         Service_Student service = new Service_Student();
-        boolean addSuccess = service.addCheck(id, name, email, phone, gender, address, avatar);
+        boolean addSuccess = service.addCheck(name, email, phone, gender, address, avatar);
         if (addSuccess == true) {
             HandleNotification.announceInfo("<html>Successfully added student <u>" + name + "</u> !</html>");
             studentPanel.initStudentsData();

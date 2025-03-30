@@ -22,20 +22,14 @@ public class Service_Student implements DAO_Students {
         return getAllStudentWithIdAndName();
     }
 
-    public boolean addCheck(String id, String name, String email, String phone, int gender, String address, String avatar) {
+    public String previewNextStudentId() {
+        return getNextStudentIdPreview();
+    }
+
+    public boolean addCheck(String name, String email, String phone, int gender, String address, String avatar) {
         boolean b = false;
 
         try {
-            if (id.length() <= 0) {
-                HandleNotification.announceWarning("<html>You have not entered <b>ID</b></html>");
-                return b;
-            }
-
-            if (isDuplicate(id)) {
-                HandleNotification.announceWarning("<html>ID <b>" + id + "</b> already exists</html>");
-                return b;
-            }
-
             if (name.length() <= 0) {
                 HandleNotification.announceWarning("<html>You have not entered <b>NAME</b></html>");
                 return b;
@@ -80,7 +74,7 @@ public class Service_Student implements DAO_Students {
         } catch (Exception ex) {
             HandleNotification.announceError("An unknown error occurred!");
         }
-        if (addStudent(id, name, email, phone, gender, address, avatar) == 1) {
+        if (addStudent(name, email, phone, gender, address, avatar) == 1) {
             b = true;
         }
 

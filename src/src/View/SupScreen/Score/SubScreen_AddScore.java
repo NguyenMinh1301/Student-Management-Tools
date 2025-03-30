@@ -50,7 +50,7 @@ public class SubScreen_AddScore extends javax.swing.JFrame {
             });
         }
     }
-
+    
     private void updateAverage() {
         updateAverageFromFields(txtEnglish, txtComputer, txtPhysical, txtAvarage);
     }
