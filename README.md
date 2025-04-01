@@ -1,11 +1,19 @@
 # 🎓 Student Management & Score System
 
-- Username: admin
+- Username: minh
 - Password: 123
+  
+## Light Mode 
 
 ![Screenshot 1](src/img/picture/demo1.png)
 ![Screenshot 2](src/img/picture/demo2.png)
 ![Screenshot 3](src/img/picture/demo3.png)
+
+## Dark Mode
+
+![Screenshot 3](src/img/picture/demo4.png)
+![Screenshot 3](src/img/picture/demo5.png)
+![Screenshot 3](src/img/picture/demo6.png)
 
 ## 📋 Overview
 
