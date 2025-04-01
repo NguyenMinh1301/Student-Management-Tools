@@ -1,4 +1,4 @@
-package src.View.Screen;
+    package src.View.Screen;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLaf;
