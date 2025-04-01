@@ -77,22 +77,32 @@ project-root/
 │   │   ├── Handle_Notification.java
 │   │   ├── Service_Avatar.java
 │   │   ├── Service_BCrypt.java
-│   │   └── (other service classes)
+│   │   ├── Service_ExportHelper.java
+│   │   ├── Service_Login.java
+│   │   ├── Service_Register.java
+│   │   ├── Service_Score.java
+│   │   ├── Service_Sort.java
+│   │   └── Service_Student.java
 │   │
 │   └── View/                       # UI components
 │       ├── Screen/                 # Main screens
 │       │   ├── View_Index.java
 │       │   ├── View_Login.java
-│       │   └── (other main screens)
-│       │
+│       │   ├── View_Register.java
+│       │   ├── View_Chart.java
+│       │   ├── View_Score.java
+│       │   └── View_Student.java
+│       │ 
 │       └── SubScreen/              # Modal/secondary screens
 │           ├── Student/            # Student-related operations
 │           │   ├── SubScreen_AddStudent.java
-│           │   └── (other student screens)
+│           │   ├── SubScreen_DetailsStudent.java
+│           │   └── SubScreen_UpdateStudent.java
 │           │
 │           └── Score/              # Score-related operations
 │               ├── SubScreen_AddScore.java
-│               └── (other score screens)
+│               ├── SubScreen_OptionScore.java
+│               └── SubScreen_UpdateScore.java
 │
 ├── scripts/                        # SQL scripts
 │   ├── script_create_database.sql
