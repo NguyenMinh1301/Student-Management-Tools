@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import src.DAO.DAO_Students;
 import src.Model.Model_Students;
-import src.Service.Handle_Notification;
+
+/*
+    Lớp Service_Student implements lớp DAO_Students
+    Lấy các dữ liệu trong database xuất lên Table
+    Kiểm tra trước dữ liệu đầu vào trước khi thêm thông tin mới vào database
+*/
 
 public class Service_Student implements DAO_Students {
 
