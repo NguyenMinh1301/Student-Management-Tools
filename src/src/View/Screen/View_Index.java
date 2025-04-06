@@ -79,18 +79,20 @@ public class View_Index extends javax.swing.JFrame {
             panScreen.add(scorePanel);
         }
 
-        //Hiện thông tin của người dùng bên trong 
+        //Hiện thông tin của người dùng bên trong giao diện
         this.setTitle("Student management V 1.0.0 | " + username);
         lblUserName.setText("username: " + username);
         lblRole.setText("role: " + roleName);
     }
-
+    
+    //Xoá màn hình cũ vẽ lại giao diện mới
     public void closeAll() {
         panScreen.removeAll();
         panScreen.revalidate();
         panScreen.repaint();
     }
-
+    
+    //Tạo hiệu ứng hover khi đưa chuột vào button
     public static void addHoverEffect(JButton btn) {
         btn.putClientProperty("JButton.buttonType", "roundRect");
         btn.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
@@ -110,7 +112,8 @@ public class View_Index extends javax.swing.JFrame {
             }
         });
     }
-
+    
+    //Đổi theme cho chương trình
     public void switchTheme(boolean dark) {
         try {
             if (dark) {
@@ -341,33 +344,39 @@ public class View_Index extends javax.swing.JFrame {
 
     private void btnScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScoreActionPerformed
         closeAll();
+        //Hiển thị panel Score
         View_Score scorePanel = new View_Score(currentUser);
         panScreen.add(scorePanel);
     }//GEN-LAST:event_btnScoreActionPerformed
 
     private void btnStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentActionPerformed
         closeAll();
+        //Hiển thị panel Student
         View_Student studentPanel = new View_Student();
         panScreen.add(studentPanel);
     }//GEN-LAST:event_btnStudentActionPerformed
 
     private void btnChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChartActionPerformed
         closeAll();
+        //Hiển thị panel Chart
         View_Chart chartPanel = new View_Chart();
         panScreen.add(chartPanel);
     }//GEN-LAST:event_btnChartActionPerformed
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        //Tắt màn hình hiện tại và gọi lại màn Login
         this.setVisible(false);
         View_Login lg = new View_Login();
         lg.setVisible(true);
     }//GEN-LAST:event_btnLogOutActionPerformed
 
     private void btnLightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLightActionPerformed
+        //Đổi theme Light
         switchTheme(false);
     }//GEN-LAST:event_btnLightActionPerformed
 
     private void btnDarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDarkActionPerformed
+        //Đổi theme Dark
         switchTheme(true);
     }//GEN-LAST:event_btnDarkActionPerformed
 

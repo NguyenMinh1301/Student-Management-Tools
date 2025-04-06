@@ -38,7 +38,6 @@ public class View_Student extends javax.swing.JPanel {
         addHoverEffect(btnSearch);
         addHoverEffect(btnExport);
         addHoverEffect(btnDetails);
-        addHoverEffect(btnOption);
         addHoverEffect(btnRefresh);
     }
 
@@ -161,7 +160,6 @@ public class View_Student extends javax.swing.JPanel {
         btnExport = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
         btnDetails = new javax.swing.JButton();
-        btnOption = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1037, 0));
 
@@ -275,11 +273,6 @@ public class View_Student extends javax.swing.JPanel {
             }
         });
 
-        btnOption.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnOption.setText("OPTION");
-        btnOption.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        btnOption.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -303,8 +296,6 @@ public class View_Student extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnOption, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -323,10 +314,9 @@ public class View_Student extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExport, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnOption, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -470,7 +460,6 @@ public class View_Student extends javax.swing.JPanel {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDetails;
     private javax.swing.JButton btnExport;
-    private javax.swing.JButton btnOption;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnSearch;
