@@ -62,7 +62,8 @@ public class Service_Student implements DAO_Students {
                 Handle_Notification.announceWarning("<html>You have not entered <b>ADDRESS</b></html>");
                 return b;
             }
-
+            
+            //Regex kiểm tra email và phone
             String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
             String phoneRegex = "^(0|\\+84)(3[2-9]|5[6|8|9]|7[0|6-9]|8[1-5]|9[0-9])[0-9]{7}$";
 
