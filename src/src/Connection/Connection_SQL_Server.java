@@ -9,7 +9,8 @@ public class Connection_SQL_Server {
     public static String SQL_Password = "123";              //Mật khẩu
 
     //Đường dẫn kết nối đến SQL Server
-    static final String ConnectURL = "jdbc:sqlserver://" + SQL_Url + ":" + SQL_Port
+    static final String ConnectURL = "jdbc:sqlserver://" 
+            + SQL_Url + ":" + SQL_Port
             + ";databaseName=" + SQL_Database
             + ";encrypt=true;trustServerCertificate=true";
 

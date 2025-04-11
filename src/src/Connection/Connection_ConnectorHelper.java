@@ -15,7 +15,7 @@ public class Connection_ConnectorHelper extends Connection_SQL_Server {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException ex) {
-            throw new RuntimeException("Erorr: Driver for SQL Server not found: ", ex);
+            throw new RuntimeException("Error: Driver for SQL Server not found: ", ex);
         }
     }
 
