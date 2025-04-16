@@ -58,5 +58,5 @@ public class Model_Score {
     public void setPhysical(float physical) {
         this.physical = physical;
     }
-
+//Democho duong
 }
