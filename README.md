@@ -1,18 +1,18 @@
-# 🎓 Student Management & Score System
+# Student Management & Score System
   
-## ☀️Light Mode 
+## Light Mode 
 
 ![Screenshot 1](src/img/picture/demo1.png)
 ![Screenshot 2](src/img/picture/demo2.png)
 ![Screenshot 3](src/img/picture/demo3.png)
 
-## 🌑Dark Mode
+## Dark Mode
 
 ![Screenshot 3](src/img/picture/demo4.png)
 ![Screenshot 3](src/img/picture/demo5.png)
 ![Screenshot 3](src/img/picture/demo6.png)
 
-## 👥Account demo
+## Account demo
 ##### Admin
 - Username: minh
 - Password: 123
@@ -30,35 +30,35 @@ A modern Java Swing desktop application for comprehensive student management and
 
 The application features secure authentication, real-time data validation, and efficient data export capabilities - making it ideal for educational institutions seeking a robust management solution.
 
-## ✨ Key Features
+## Key Features
 
-### 🔐 User Authentication
+### User Authentication
 - Secure login and registration with jBCrypt password encryption
 - Role-based access control with multi-user support
 
-### 👨‍🎓 Student Management
+### Student Management
 - Complete CRUD operations with intuitive interfaces
 - Advanced search with multiple filtering options
 - Auto-generated student IDs with database counters
 - Dedicated screens for profile management
 
-### 📊 Score Tracking
+### Score Tracking
 - Comprehensive grade management across multiple subjects
 - Automatic average calculation with validation
 - Historical performance trending
 - Specialized interfaces for grade operations
 
-### 📈 Analytics Dashboard
+### Analytics Dashboard
 - Demographic breakdowns with interactive visualizations
 - Subject performance distribution charts
 - JFreeChart-powered data visualization
 - Top performers tracking and identification
 
-### 💾 Data Operations
+### Data Operations
 - One-click CSV export functionality
 - Customizable reporting templates
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Core**: Java 11+
 - **UI**: Java Swing with FlatLaf for modern styling
@@ -67,7 +67,7 @@ The application features secure authentication, real-time data validation, and e
 - **Visualization**: JFreeChart for interactive charts
 - **Build**: Maven/Gradle compatible structure
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 project-root/
@@ -128,7 +128,7 @@ project-root/
 └── README.md
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Java 11 or higher
@@ -167,7 +167,7 @@ project-root/
    ./scripts/script_insert_database.sql
    ```
 
-## 📖 Usage Guide
+## Usage Guide
 
 ### Getting Started
 1. Launch the application from your IDE or command line
@@ -205,32 +205,10 @@ project-root/
 - Utilize the CSV export functionality to save or share data
 - Generate custom reports based on filtered data views
 
-## 🤝 Contributing
-
-We welcome contributions to improve this project! Here's how you can help:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 Please ensure your code follows the existing style and includes appropriate tests.
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 👏 Acknowledgements
-
-- [FlatLaf](https://www.formdev.com/flatlaf/) - Modern Look & Feel for Java Swing
-- [jBCrypt](https://www.mindrot.org/projects/jBCrypt/) - Password hashing library
-- [JFreeChart](http://www.jfree.org/jfreechart/) - Java chart library
-- [Microsoft JDBC Driver for SQL Server](https://docs.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) - JDBC driver
-
----
-
-## 📬 Contact
+## Contact
 
 If you have any questions or feedback, please reach out:
 - **Email**: nguyenminh1301.dev@gmail.com
